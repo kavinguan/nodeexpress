@@ -24,4 +24,5 @@ jobs:
         # npm test
       env:
         CI: true
+    - name: deploy
       run: node bin/www
