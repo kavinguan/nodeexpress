@@ -24,4 +24,4 @@ jobs:
         # npm test
       env:
         CI: true
-      run: node ./bin/www
+      run: node bin/www
