@@ -26,3 +26,5 @@ jobs:
         CI: true
     - name: deploy
       run: node ./bin/www
+      env:
+        CI: true
