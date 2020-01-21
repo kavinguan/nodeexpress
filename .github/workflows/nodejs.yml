@@ -25,4 +25,4 @@ jobs:
       env:
         CI: true
     - name: deploy
-      run: node bin/www
+      run: node ./bin/www
