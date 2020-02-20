@@ -1,5 +1,5 @@
 on: push
-name: Test FTP Deploy
+name: Test FTP Deploy1
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
