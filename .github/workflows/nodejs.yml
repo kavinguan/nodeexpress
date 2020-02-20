@@ -11,6 +11,6 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action-Typescript@master
       with:
-        ftp-server: ftp://47.241.17.161/
+        ftp-server: ftp://guankaifei.com/
         ftp-username: ${{ secrets.ftpname }}
         ftp-password: ${{ secrets.ftppassword }}
