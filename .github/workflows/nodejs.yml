@@ -28,5 +28,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@3.0.0
       with:
         ftp-server: ftp://47.241.17.161/
-        ftp-username: github
+        ftp-username: ${{ secrets.ftpname }}
         ftp-password: ${{ secrets.ftppassword }}
