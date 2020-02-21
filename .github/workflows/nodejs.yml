@@ -1,14 +1,14 @@
-name: Deploy via git-ftp
+name: Deploy via ftp
 on: push
 jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: git-ftp push
-      uses: sebastianpopp/git-ftp-action@releases/v2
+    - uses: actions/checkout@master
+    - name: Upload ftp
+      uses: sebastianpopp/ftp-action@releases/v1
       with:
-        url: ftp://guankaifei.com/
+        host: ftp://47.241.17.161/
         user: ${{ secrets.ftpname }}
         password: ${{ secrets.ftppassword }}
