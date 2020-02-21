@@ -1,14 +1,32 @@
-name: Deploy via git-ftp 1
-on: push
+name: Node CI
+
+on: [push]
+
 jobs:
-  deploy:
-    name: Deploy
+  build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
     steps:
     - uses: actions/checkout@v1
-    - name: git-ftp push
-      uses: sebastianpopp/git-ftp-action@releases/v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
-        url: ftp://47.241.17.161/
-        user: ${{ secrets.ftpname }}
-        password: ${{ secrets.ftppassword }}
+        node-version: ${{ matrix.node-version }}
+    - name: npm install, build, and test
+      run: |
+        npm ci
+        # npm run build --if-present
+        # npm test
+      env:
+        CI: true
+    - name: FTP-Deploy-Action1
+      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      with:
+        ftp-server: ftp://47.241.17.161/
+        ftp-username: ${{ secrets.ftpname }}
+        ftp-password: ${{ secrets.ftppassword }}
