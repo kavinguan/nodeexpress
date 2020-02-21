@@ -9,7 +9,7 @@ const ejs = require('ejs')
 router.get('/', function (req, res, next) {
   res.render('index', {
     title: 'Express',
-    list: '123'
+    list: '1234'
   });
 });
 
