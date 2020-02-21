@@ -1,23 +1,14 @@
-name: Node CI
-
-on: [push]
-
+name: Publish Website
+on: push
 jobs:
-  build:
-
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@master
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: FTP-Deploy-Action1
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.0.0
       with:
         ftp-server: ftp://47.241.17.161/
